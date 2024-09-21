@@ -1,7 +1,5 @@
 import arrow from 'src/images/arrow.svg';
-
 import styles from './ArrowButton.module.scss';
-// import { useState } from 'react';
 import clsx from 'clsx';
 
 type ArrowButtonProps = {

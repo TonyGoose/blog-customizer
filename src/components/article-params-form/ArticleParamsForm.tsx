@@ -28,7 +28,7 @@ export const ArticleParamsForm = ({
 	currentArticleState,
 	setCurrentArticleState,
 }: ArticleParamsFormProps) => {
-	const [isOpen, setIsOpen] = useState(false);
+	const [isMenuOpen, setIsMenuOpen] = useState(false);
 	const formRef = useRef<HTMLDivElement | null>(null);
 	const [currentFontFamily, setCurrentFontFamily] = useState(
 		currentArticleState.fontFamilyOption
@@ -68,16 +68,16 @@ export const ArticleParamsForm = ({
 	};
 
 	useOutsideClickClose({
-		isOpen,
+		isOpen: isMenuOpen,
 		rootRef: formRef,
-		onChange: setIsOpen,
+		onChange: setIsMenuOpen,
 	});
 
 	return (
 		<>
-			<ArrowButton isOpen={isOpen} setIsOpen={() => setIsOpen(!isOpen)} />
+			<ArrowButton isOpen={isMenuOpen} setIsOpen={() => setIsMenuOpen(!isMenuOpen)} />
 			<aside
-				className={clsx(styles.container, isOpen && styles.container_open)}
+				className={clsx(styles.container, isMenuOpen && styles.container_open)}
 				ref={formRef}>
 				<form
 					className={styles.form}
